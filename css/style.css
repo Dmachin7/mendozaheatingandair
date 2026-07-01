@@ -306,24 +306,6 @@ input, select, textarea { font-family: inherit; }
   justify-content: center;
 }
 
-@media (max-width: 768px) {
-  /* Leave room below for the trust-strip marquee to peek into view on
-     first load, but still let the hero grow taller if content needs it. */
-  .hero {
-    min-height: calc(100svh - 64px);
-  }
-  .hero__content {
-    padding: 40px 24px;
-  }
-}
-
-@media (max-width: 480px) {
-  .hero__logo {
-    width: clamp(160px, 42vw, 240px);
-    margin-bottom: 20px;
-  }
-}
-
 .hero__bg {
   position: absolute;
   inset: 0;
@@ -438,6 +420,52 @@ input, select, textarea { font-family: inherit; }
 
 @media (max-width: 768px) {
   .hero__scroll-text { display: block; }
+}
+
+/* Mobile hero overrides — placed after all the base rules above so they
+   actually win the cascade. Leaves room below for the trust-strip marquee
+   to peek into view on first load, but still lets the hero grow taller if
+   content needs it. Top-aligned with tighter spacing so the badge sits
+   close to the navbar and both CTAs fit above the fold without scrolling. */
+@media (max-width: 768px) {
+  .hero {
+    /* Reserve room for the 70px sticky nav above and the ~56px trust-strip
+       marquee below, so both the hero content and the strip fit in the
+       first viewport together. */
+    min-height: calc(100svh - 70px - 56px);
+    /* Stack hero__content then hero__scroll vertically in source order,
+       instead of hero__scroll floating independently at the bottom —
+       otherwise it can overlap the CTAs once content is top-aligned. */
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  .hero__content {
+    padding: 20px 24px 8px;
+  }
+  .badge {
+    margin-bottom: 12px;
+  }
+  .hero__title {
+    margin-bottom: 8px;
+  }
+  .hero__subtext {
+    margin-bottom: 14px;
+  }
+  .hero__scroll {
+    position: static;
+    left: auto;
+    bottom: auto;
+    transform: none;
+    margin-top: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero__logo {
+    width: clamp(160px, 42vw, 240px);
+    margin-bottom: 10px;
+  }
 }
 
 /* ============ TRUST STRIP ============ */
