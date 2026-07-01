@@ -22,7 +22,6 @@
 <header class="nav" id="nav">
   <div class="nav__inner">
     <a href="#" class="nav__logo-link">
-      <!-- TODO: drop logo_mendoza_png.png into assets/ as logo.png -->
       <img src="assets/logo.png" alt="Mendoza Heating & Air" class="nav__logo">
     </a>
 
@@ -45,31 +44,31 @@
       <span></span><span></span><span></span>
     </button>
   </div>
-
-  <!-- Mobile full-screen overlay nav -->
-  <div class="nav__overlay" id="navOverlay">
-    <nav aria-label="Mobile Primary">
-      <a href="#services">Services</a>
-      <a href="#about">About</a>
-      <a href="#reviews">Reviews</a>
-      <a href="#areas">Areas</a>
-      <a href="#contact">Contact</a>
-    </nav>
-    <a href="tel:8137702722" class="btn btn--primary btn--full">Call Now: (813) 770-2722</a>
-  </div>
 </header>
+
+<!-- Mobile flyout nav: slides in from the right, below the navbar. Kept outside <header> since
+     backdrop-filter on .nav creates a new containing block that would break position: fixed here. -->
+<div class="nav__backdrop" id="navBackdrop"></div>
+<div class="nav__overlay" id="navOverlay">
+  <nav aria-label="Mobile Primary">
+    <a href="#services">Services</a>
+    <a href="#about">About</a>
+    <a href="#reviews">Reviews</a>
+    <a href="#areas">Areas</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <a href="tel:8137702722" class="btn btn--primary btn--full">Call Now: (813) 770-2722</a>
+</div>
 
 <!-- ================= HERO ================= -->
 <section class="hero" id="hero">
-  <!-- Hero background: HVAC technician on rooftop, dramatic sky -->
-  <!-- TODO: download https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=1920&q=85 to assets/images/hero-hvac.jpg for production use (hotlinked below for demo) -->
-  <div class="hero__bg" style="background-image: url('https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=1920&q=85');"></div>
+  <!-- Hero background: HVAC technician at work -->
+  <!-- TODO: download https://images.unsplash.com/photo-1615309662243-70f6df917b59?q=80&w=1560&auto=format&fit=crop to assets/images/hero-hvac.jpg for production use (hotlinked below for demo) -->
+  <div class="hero__bg" style="background-image: url('https://images.unsplash.com/photo-1615309662243-70f6df917b59?q=80&w=1560&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');"></div>
   <div class="hero__overlay"></div>
 
   <div class="hero__content">
     <div class="badge badge--pulse" id="heroBadge">⚡ 24/7 Emergency Service Available</div>
-
-    <img src="assets/logo.png" alt="Mendoza Heating & Air" class="hero__logo" id="heroLogo">
 
     <h1 class="hero__title">
       <span class="hero__title-line" id="heroLine1">Tampa's Trusted</span>
@@ -85,28 +84,51 @@
   </div>
 
   <div class="hero__scroll" id="heroScroll" aria-hidden="true">
+    <span class="hero__scroll-text">Scroll to explore</span>
     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
   </div>
 </section>
 
 <!-- ================= TRUST STRIP ================= -->
-<section class="trust-strip">
-  <div class="trust-strip__inner">
-    <div class="trust-badge">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      <span>Licensed & Insured</span>
+<!-- Infinite auto-scrolling marquee: the badge group is duplicated below so the
+     CSS animation can loop seamlessly from -50% back to 0. -->
+<section class="trust-strip" aria-label="Trust badges">
+  <div class="trust-strip__track">
+    <div class="trust-strip__group">
+      <div class="trust-badge">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span>Licensed & Insured</span>
+      </div>
+      <div class="trust-badge">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z" fill="#fff"/></svg>
+        <span>Same-Day Service</span>
+      </div>
+      <div class="trust-badge">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#fff" stroke-width="2"/><path d="M12 7v5l3 3" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg>
+        <span>24/7 Emergency Available</span>
+      </div>
+      <div class="trust-badge">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="#fff"/></svg>
+        <span>5-Star Rated in Tampa</span>
+      </div>
     </div>
-    <div class="trust-badge">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z" fill="#fff"/></svg>
-      <span>Same-Day Service</span>
-    </div>
-    <div class="trust-badge">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#fff" stroke-width="2"/><path d="M12 7v5l3 3" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg>
-      <span>24/7 Emergency Available</span>
-    </div>
-    <div class="trust-badge">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="#fff"/></svg>
-      <span>5-Star Rated in Tampa</span>
+    <div class="trust-strip__group" aria-hidden="true">
+      <div class="trust-badge">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span>Licensed & Insured</span>
+      </div>
+      <div class="trust-badge">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z" fill="#fff"/></svg>
+        <span>Same-Day Service</span>
+      </div>
+      <div class="trust-badge">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#fff" stroke-width="2"/><path d="M12 7v5l3 3" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg>
+        <span>24/7 Emergency Available</span>
+      </div>
+      <div class="trust-badge">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="#fff"/></svg>
+        <span>5-Star Rated in Tampa</span>
+      </div>
     </div>
   </div>
 </section>
@@ -216,8 +238,8 @@
 <section class="section" id="about">
   <div class="section__inner about">
     <div class="about__image-wrap">
-      <!-- TODO: download https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1920&q=85 to assets/images/about-technician.jpg -->
-      <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1920&q=85" alt="Mendoza Heating & Air technician at work" class="about__image" loading="lazy">
+      <!-- TODO: download https://images.unsplash.com/photo-1698479603408-1a66a6d9e80f?q=80&w=774&auto=format&fit=crop to assets/images/about-technician.jpg -->
+      <img src="https://images.unsplash.com/photo-1698479603408-1a66a6d9e80f?q=80&w=774&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Mendoza Heating & Air technician at work" class="about__image" loading="lazy">
     </div>
 
     <div class="about__text">
@@ -552,11 +574,6 @@
     <a href="https://trackt.tech" target="_blank" rel="noopener">Built by Trackt Tech — trackt.tech</a>
   </div>
 </footer>
-
-<!-- ================= STICKY MOBILE CALL BUTTON ================= -->
-<a href="tel:8137702722" class="mobile-call" id="mobileCall">
-  📞 Call (813) 770-2722
-</a>
 
 <!-- CDN Scripts -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>

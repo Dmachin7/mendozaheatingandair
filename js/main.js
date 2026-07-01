@@ -57,20 +57,25 @@ window.addEventListener('scroll', updateNavState);
 // ---------- Mobile nav toggle ----------
 const navBurger = document.getElementById('navBurger');
 const navOverlay = document.getElementById('navOverlay');
+const navBackdrop = document.getElementById('navBackdrop');
 
 function closeMobileNav() {
   navBurger.classList.remove('is-active');
   navBurger.setAttribute('aria-expanded', 'false');
   navOverlay.classList.remove('is-open');
+  navBackdrop.classList.remove('is-open');
   document.body.style.overflow = '';
 }
 
 navBurger.addEventListener('click', () => {
   const isOpen = navOverlay.classList.toggle('is-open');
+  navBackdrop.classList.toggle('is-open', isOpen);
   navBurger.classList.toggle('is-active', isOpen);
   navBurger.setAttribute('aria-expanded', String(isOpen));
   document.body.style.overflow = isOpen ? 'hidden' : '';
 });
+
+navBackdrop.addEventListener('click', closeMobileNav);
 
 navOverlay.querySelectorAll('a').forEach((link) => {
   link.addEventListener('click', closeMobileNav);
@@ -78,19 +83,18 @@ navOverlay.querySelectorAll('a').forEach((link) => {
 
 // ---------- Hero entrance animation ----------
 if (prefersReducedMotion) {
-  document.querySelectorAll('#heroBadge, #heroLogo, #heroLine1, #heroLine2, #heroSubtext, #heroCtas').forEach((el) => {
+  document.querySelectorAll('#heroBadge, #heroLine1, #heroLine2, #heroSubtext, #heroCtas').forEach((el) => {
     el.style.opacity = 1;
   });
 } else {
   const heroTl = gsap.timeline({ defaults: { ease: 'power2.out' } });
 
   heroTl
-    .fromTo('#heroLogo', { scale: 0.8, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.6 }, 0)
-    .fromTo('#heroBadge', { y: -20, opacity: 0 }, { y: 0, opacity: 1, duration: 0.4 }, 0.3)
-    .fromTo('#heroLine1', { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6 }, 0.5)
-    .fromTo('#heroLine2', { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5 }, 0.65)
-    .fromTo('#heroSubtext', { opacity: 0 }, { opacity: 1, duration: 0.5 }, 0.8)
-    .fromTo('#heroCtas > a', { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, stagger: 0.1 }, 0.95);
+    .fromTo('#heroBadge', { y: -20, opacity: 0 }, { y: 0, opacity: 1, duration: 0.4 }, 0)
+    .fromTo('#heroLine1', { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6 }, 0.2)
+    .fromTo('#heroLine2', { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5 }, 0.35)
+    .fromTo('#heroSubtext', { opacity: 0 }, { opacity: 1, duration: 0.5 }, 0.5)
+    .fromTo('#heroCtas > a', { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, stagger: 0.1 }, 0.65);
 }
 
 // ---------- Scroll indicator ----------
@@ -132,16 +136,6 @@ if (!prefersReducedMotion) {
     opacity: 0,
     y: 40,
     duration: 0.6,
-    stagger: 0.08,
-    ease: 'power2.out',
-  });
-
-  // Trust strip badges
-  gsap.from('.trust-badge', {
-    scrollTrigger: { trigger: '.trust-strip', start: 'top 90%' },
-    opacity: 0,
-    x: -30,
-    duration: 0.5,
     stagger: 0.08,
     ease: 'power2.out',
   });
@@ -212,20 +206,4 @@ if (!prefersReducedMotion) {
     stagger: 0.05,
     ease: 'power2.out',
   });
-}
-
-// ---------- Sticky mobile call button ----------
-const mobileCall = document.getElementById('mobileCall');
-const contactSection = document.getElementById('contact');
-
-if (mobileCall && contactSection && 'IntersectionObserver' in window) {
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        mobileCall.classList.toggle('is-hidden', entry.isIntersecting);
-      });
-    },
-    { threshold: 0.1 }
-  );
-  observer.observe(contactSection);
 }

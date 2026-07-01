@@ -30,11 +30,10 @@ mendozaheatingandair/
 
 ## Before launch — TODO
 
-1. **Logo** — drop `logo_mendoza_png.png` into `assets/` and rename it to `logo.png`. It's referenced in the nav, hero, and footer.
-2. **Images** — the demo hotlinks Unsplash images directly for convenience. For production, download these and save them locally to `assets/images/`, then update the `src`/`background-image` URLs in `index.html` and `css/style.css`:
-   - Hero background: `https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=1920&q=85` → `assets/images/hero-hvac.jpg`
-   - About section photo: `https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1920&q=85` → `assets/images/about-technician.jpg`
-   - Services background accent (unused in current layout, reserved for future use): `https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=1920&q=85` → `assets/images/services-accent.jpg`
+1. **Logo** — `assets/logo.png` is already in place (referenced in the nav and footer).
+2. **Images** — the demo hotlinks Unsplash images directly for convenience. For production, download these and save them locally to `assets/images/`, then update the `src`/`background-image` URLs in `index.html`:
+   - Hero background: `https://images.unsplash.com/photo-1615309662243-70f6df917b59?q=80&w=1560&auto=format&fit=crop` → `assets/images/hero-hvac.jpg`
+   - About section photo: `https://images.unsplash.com/photo-1698479603408-1a66a6d9e80f?q=80&w=774&auto=format&fit=crop` → `assets/images/about-technician.jpg`
 3. **Phone number** — confirm the correct primary phone number with the client before launch. Currently using **(813) 770-2722** as primary throughout (secondary on file: (813) 338-6143, not currently displayed).
 4. **Contact form** — this demo is frontend-only (no backend). Wire it up to a real form handler (e.g. Formspree, a serverless function, or a CRM webhook) before going live.
 
