@@ -298,8 +298,11 @@ input, select, textarea { font-family: inherit; }
   position: relative;
   /* min-height (not a fixed height) so content — badge, logo, headline,
      subtext, CTAs — is never clipped by overflow: hidden if it needs
-     more room than one viewport tall. */
-  min-height: max(600px, 100svh);
+     more room than one viewport tall. Subtract the sticky nav's 70px:
+     the nav sits above the hero in normal flow, so without this the
+     nav + hero combo is always 70px taller than one screen, pushing
+     the bottom of the hero (and its CTAs) just past the fold. */
+  min-height: max(530px, calc(100svh - 70px));
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -336,7 +339,7 @@ input, select, textarea { font-family: inherit; }
   text-align: center;
   /* Slightly more padding on top than bottom nudges the whole stack down a
      touch from dead-center. */
-  padding: 96px 24px 72px;
+  padding: 72px 24px 56px;
   max-width: 720px;
 }
 
@@ -422,6 +425,29 @@ input, select, textarea { font-family: inherit; }
 
 @media (max-width: 768px) {
   .hero__scroll-text { display: block; }
+}
+
+/* Mobile-only safety margin: real Bebas Neue/Inter render taller than the
+   font-fallback sizes used during development, so trim spacing a bit more
+   here to keep both hero CTAs reliably above the fold on phones. Placed
+   after all the base hero rules above so it actually wins the cascade. */
+@media (max-width: 480px) {
+  .hero__logo {
+    width: clamp(200px, 46vw, 300px);
+    margin-bottom: 22px;
+  }
+  .hero__content {
+    padding: 56px 24px 40px;
+  }
+  .badge {
+    margin-bottom: 18px;
+  }
+  .hero__title {
+    margin-bottom: 14px;
+  }
+  .hero__subtext {
+    margin-bottom: 22px;
+  }
 }
 
 /* ============ TRUST STRIP ============ */
