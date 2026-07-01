@@ -296,33 +296,24 @@ input, select, textarea { font-family: inherit; }
 
 .hero {
   position: relative;
-  height: 100svh;
-  min-height: 600px;
+  /* min-height (not a fixed height) so content — badge, logo, headline,
+     subtext, CTAs — is never clipped by overflow: hidden if it needs
+     more room than one viewport tall. */
+  min-height: max(600px, 100svh);
   overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-/* On mobile, the hero and trust strip share one viewport-height block so the
-   marquee is visible without scrolling on first load. */
 @media (max-width: 768px) {
-  .hero-group {
-    height: 100svh;
-    min-height: 560px;
-    display: flex;
-    flex-direction: column;
-  }
+  /* Leave room below for the trust-strip marquee to peek into view on
+     first load, but still let the hero grow taller if content needs it. */
   .hero {
-    height: auto;
-    min-height: 0;
-    flex: 1 1 auto;
+    min-height: calc(100svh - 64px);
   }
   .hero__content {
     padding: 40px 24px;
-  }
-  .trust-strip {
-    flex-shrink: 0;
   }
 }
 
@@ -415,7 +406,6 @@ input, select, textarea { font-family: inherit; }
 .hero__ctas {
   display: flex;
   gap: 12px;
-  opacity: 0;
 }
 
 @media (max-width: 640px) {
