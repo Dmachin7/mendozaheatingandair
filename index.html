@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mendoza Heating & Air | HVAC Repair & Installation in Tampa, FL</title>
+<meta name="description" content="Fast, reliable HVAC repair and installation in Tampa, FL. Licensed, insured, and available 24/7. Call Mendoza Heating & Air today: (813) 770-2722.">
+
+<!-- Favicon: inline SVG - red circle with M -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='50' fill='%23C8102E'/%3E%3Ctext x='50' y='68' font-family='Arial, sans-serif' font-weight='700' font-size='58' fill='white' text-anchor='middle'%3EM%3C/text%3E%3C/svg%3E">
+
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ================= NAV ================= -->
+<header class="nav" id="nav">
+  <div class="nav__inner">
+    <a href="#" class="nav__logo-link">
+      <!-- TODO: drop logo_mendoza_png.png into assets/ as logo.png -->
+      <img src="assets/logo.png" alt="Mendoza Heating & Air" class="nav__logo">
+    </a>
+
+    <nav class="nav__links" aria-label="Primary">
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#areas">Areas</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <!-- TODO: Confirm correct primary phone number with client before launch -->
+    <a href="tel:8137702722" class="btn btn--call">
+      <svg class="icon-phone" width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.5.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.5 21 3 13.5 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.5.1.4 0 .7-.2 1L6.6 10.8z" fill="currentColor"/></svg>
+      <span class="btn--call__number">(813) 770-2722</span>
+      <span class="btn--call__label">Call</span>
+    </a>
+
+    <button class="nav__burger" id="navBurger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+
+  <!-- Mobile full-screen overlay nav -->
+  <div class="nav__overlay" id="navOverlay">
+    <nav aria-label="Mobile Primary">
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#areas">Areas</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a href="tel:8137702722" class="btn btn--primary btn--full">Call Now: (813) 770-2722</a>
+  </div>
+</header>
+
+<!-- ================= HERO ================= -->
+<section class="hero" id="hero">
+  <!-- Hero background: HVAC technician on rooftop, dramatic sky -->
+  <!-- TODO: download https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=1920&q=85 to assets/images/hero-hvac.jpg for production use (hotlinked below for demo) -->
+  <div class="hero__bg" style="background-image: url('https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=1920&q=85');"></div>
+  <div class="hero__overlay"></div>
+
+  <div class="hero__content">
+    <div class="badge badge--pulse" id="heroBadge">⚡ 24/7 Emergency Service Available</div>
+
+    <img src="assets/logo.png" alt="Mendoza Heating & Air" class="hero__logo" id="heroLogo">
+
+    <h1 class="hero__title">
+      <span class="hero__title-line" id="heroLine1">Tampa's Trusted</span>
+      <span class="hero__title-line" id="heroLine2">HVAC Experts.</span>
+    </h1>
+
+    <p class="hero__subtext" id="heroSubtext">Fast, reliable air conditioning and heating services in Tampa, FL. Licensed, insured, and available when you need us most.</p>
+
+    <div class="hero__ctas" id="heroCtas">
+      <a href="#contact" class="btn btn--primary">Schedule Service</a>
+      <a href="tel:8137702722" class="btn btn--secondary">Call (813) 770-2722</a>
+    </div>
+  </div>
+
+  <div class="hero__scroll" id="heroScroll" aria-hidden="true">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </div>
+</section>
+
+<!-- ================= TRUST STRIP ================= -->
+<section class="trust-strip">
+  <div class="trust-strip__inner">
+    <div class="trust-badge">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span>Licensed & Insured</span>
+    </div>
+    <div class="trust-badge">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z" fill="#fff"/></svg>
+      <span>Same-Day Service</span>
+    </div>
+    <div class="trust-badge">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#fff" stroke-width="2"/><path d="M12 7v5l3 3" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg>
+      <span>24/7 Emergency Available</span>
+    </div>
+    <div class="trust-badge">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="#fff"/></svg>
+      <span>5-Star Rated in Tampa</span>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SERVICES ================= -->
+<section class="section" id="services">
+  <div class="section__inner">
+    <p class="label">WHAT WE DO</p>
+    <h2 class="heading">Our Services</h2>
+    <p class="subtext">From emergency repairs to full system installations, Mendoza Heating & Air handles it all — fast, clean, and done right the first time.</p>
+
+    <div class="grid grid--3 services-grid">
+      <div class="card service-card">
+        <div class="card__icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.1-3.1a5 5 0 01-6.6 6.6L7.1 19.9a2 2 0 01-2.8-2.8L11.4 10a5 5 0 016.6-6.6l-3.1 3.1z" stroke="#fff" stroke-width="1.6" stroke-linejoin="round"/></svg>
+        </div>
+        <h3 class="card__title">Air Conditioning Repair</h3>
+        <p class="card__desc">Fast diagnosis and repair for all AC makes and models. We get your system cooling again — same day when possible.</p>
+      </div>
+
+      <div class="card service-card">
+        <div class="card__icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><rect x="3" y="8" width="18" height="10" rx="1.5" stroke="#fff" stroke-width="1.6"/><path d="M7 8V6a1 1 0 011-1h8a1 1 0 011 1v2M7 21v-3M17 21v-3" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/></svg>
+        </div>
+        <h3 class="card__title">Installation & Replacement</h3>
+        <p class="card__desc">Complete HVAC system installations and full unit replacements. Properly sized for your space, installed to last.</p>
+      </div>
+
+      <div class="card service-card">
+        <div class="card__icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 2c1 3-2 3-2 6a2 2 0 004 0c1 2 2 3 2 5a4 4 0 11-8 0c0-3 2-4 2-6 0-2-1-3 2-5z" fill="#fff"/></svg>
+        </div>
+        <h3 class="card__title">Heating Repair Services</h3>
+        <p class="card__desc">Reliable heating repair for furnaces, heat pumps, and all heating systems. Stay warm when it matters.</p>
+      </div>
+
+      <div class="card service-card">
+        <div class="card__icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 21V9l8-6 8 6v12h-6v-7h-4v7H4z" stroke="#fff" stroke-width="1.6" stroke-linejoin="round"/></svg>
+        </div>
+        <h3 class="card__title">Commercial HVAC Services</h3>
+        <p class="card__desc">Keeping businesses cool and comfortable. Commercial HVAC repair, installation, and maintenance for Tampa area businesses.</p>
+      </div>
+
+      <div class="card service-card">
+        <div class="card__icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 2v20M4.5 6.5l15 11M19.5 6.5l-15 11M12 2l2 2.5M12 2l-2 2.5M12 22l2-2.5M12 22l-2-2.5" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/></svg>
+        </div>
+        <h3 class="card__title">Refrigeration & Freezers</h3>
+        <p class="card__desc">Commercial refrigeration repair and maintenance. Walk-in freezers, coolers, and refrigeration units for restaurants and businesses.</p>
+      </div>
+
+      <div class="card service-card">
+        <div class="card__icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><rect x="2" y="10" width="20" height="4" rx="1" stroke="#fff" stroke-width="1.6"/><path d="M6 14v4M18 14v4" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/></svg>
+        </div>
+        <h3 class="card__title">Ductwork Services</h3>
+        <p class="card__desc">Ductwork installation, repair, and sealing. Properly sealed ducts improve efficiency and indoor air quality.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= WHY CHOOSE US ================= -->
+<section class="section section--alt">
+  <div class="section__inner why-us">
+    <div class="why-us__left">
+      <p class="label">WHY MENDOZA</p>
+      <h2 class="heading">Fast. Honest.<br>Dependable.</h2>
+      <p class="subtext">Will and the Mendoza team have built a reputation in Tampa for showing up on time, explaining everything clearly, and charging fair prices. No surprises. No upsells. Just great HVAC service.</p>
+    </div>
+
+    <div class="why-us__right">
+      <div class="usp">
+        <span class="usp__num">01</span>
+        <div>
+          <h3 class="usp__title">Same-Day Service</h3>
+          <p class="usp__desc">Most repairs scheduled same-day. We know AC problems in Tampa can't wait.</p>
+        </div>
+      </div>
+      <div class="usp">
+        <span class="usp__num">02</span>
+        <div>
+          <h3 class="usp__title">Licensed & Insured</h3>
+          <p class="usp__desc">Fully licensed and insured HVAC contractors. You're protected from start to finish.</p>
+        </div>
+      </div>
+      <div class="usp">
+        <span class="usp__num">03</span>
+        <div>
+          <h3 class="usp__title">Honest Upfront Pricing</h3>
+          <p class="usp__desc">No hidden fees. No surprise invoices. You'll know the price before we start.</p>
+        </div>
+      </div>
+      <div class="usp">
+        <span class="usp__num">04</span>
+        <div>
+          <h3 class="usp__title">Available 24/7</h3>
+          <p class="usp__desc">HVAC emergencies don't wait for business hours. Neither do we — call anytime.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ABOUT ================= -->
+<section class="section" id="about">
+  <div class="section__inner about">
+    <div class="about__image-wrap">
+      <!-- TODO: download https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1920&q=85 to assets/images/about-technician.jpg -->
+      <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1920&q=85" alt="Mendoza Heating & Air technician at work" class="about__image" loading="lazy">
+    </div>
+
+    <div class="about__text">
+      <p class="label">ABOUT US</p>
+      <h2 class="heading heading--sm">Locally Owned.<br>Tampa Proud.</h2>
+
+      <p>Mendoza Heating & Air is a locally owned HVAC company proudly serving Tampa, FL and surrounding communities. Founded and led by Will Mendoza, our team is committed to delivering high-quality air conditioning and heating services for both residential and commercial customers.</p>
+      <p>We believe in honest pricing, dependable service, and HVAC solutions that actually last. When Tampa homeowners and businesses need fast, reliable HVAC service — they call Mendoza.</p>
+
+      <div class="about__stats">
+        <div class="stat">
+          <span class="stat__num">10+</span>
+          <span class="stat__label">Years Experience</span>
+        </div>
+        <div class="stat">
+          <span class="stat__num">24/7</span>
+          <span class="stat__label">Emergency Service</span>
+        </div>
+      </div>
+
+      <a href="tel:8137702722" class="about__cta">Call Will directly: (813) 770-2722 →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= REVIEWS ================= -->
+<section class="section section--tight" id="reviews">
+  <div class="section__inner">
+    <p class="label">WHAT CUSTOMERS SAY</p>
+    <h2 class="heading">Don't Take Our Word For It.</h2>
+    <p class="subtext">Real reviews from real Tampa homeowners and business owners.</p>
+
+    <div class="review-rating">
+      <span class="stars">★★★★★</span>
+      <span class="review-rating__text">5.0 — 10 Google Reviews</span>
+    </div>
+
+    <div class="grid grid--3 reviews-grid">
+      <div class="card review-card">
+        <div class="review-card__top"><span class="stars">★★★★★</span><span class="review-card__time">3 weeks ago</span></div>
+        <h3 class="review-card__name">Melissa <span class="review-card__count">· 1 review</span></h3>
+        <p class="review-card__text">Thanks Will! Fast service, fair pricing, and my AC is working great again. Couldn't be happier. Highly recommend Mendoza Heating and Air</p>
+        <p class="review-card__source">— Google Review</p>
+      </div>
+
+      <div class="card review-card">
+        <div class="review-card__top"><span class="stars">★★★★★</span><span class="review-card__time">3 weeks ago</span></div>
+        <h3 class="review-card__name">Phobe S <span class="review-card__count">· 3 reviews</span></h3>
+        <p class="review-card__text">Excellent experience with Mendoza Heating and Air. Will installed my HVAC system and did a fantastic job. Professional, efficient, and knowledgeable from start to finish. Great workmanship and customer service. Highly recommend!</p>
+        <p class="review-card__source">— Google Review</p>
+      </div>
+
+      <div class="card review-card">
+        <div class="review-card__top"><span class="stars">★★★★★</span><span class="review-card__time">2 weeks ago</span></div>
+        <h3 class="review-card__name">Maria Maldonado <span class="review-card__count">· 9 reviews</span></h3>
+        <p class="review-card__text">I can not say enough about Mendoza Heating And Air. Yesterday a tenant called to say their unit was not cooling, in Florida our company treats that like an emergency.</p>
+        <p class="review-card__source">— Google Review</p>
+      </div>
+
+      <div class="card review-card">
+        <div class="review-card__top"><span class="stars">★★★★★</span><span class="review-card__time">2 weeks ago</span></div>
+        <h3 class="review-card__name">Fred Cabeson <span class="review-card__count">· 9 reviews</span></h3>
+        <p class="review-card__text">Great people and service, they went the extra mile on my install. Professionally planned and executed</p>
+        <p class="review-card__source">— Google Review</p>
+      </div>
+
+      <div class="card review-card">
+        <div class="review-card__top"><span class="stars">★★★★★</span><span class="review-card__time">2 weeks ago</span></div>
+        <h3 class="review-card__name">A Leaks <span class="review-card__count">· Local Guide · 40 reviews</span></h3>
+        <p class="review-card__text">Thank you Will, Fast friendly service and great experience HIGHLY RECOMMEND</p>
+        <p class="review-card__source">— Google Review</p>
+      </div>
+
+      <div class="card review-card">
+        <div class="review-card__top"><span class="stars">★★★★★</span><span class="review-card__time">4 days ago</span></div>
+        <h3 class="review-card__name">Luis Valdes <span class="review-card__count">· 6 reviews</span></h3>
+        <p class="review-card__text">Will and Jr have done an amazing job replacing my 19 years old ac unit. They were at my house early morning and by midday they had finished installing a brand new unit. They are very professional and detailed and great personality.</p>
+        <p class="review-card__source">— Google Review</p>
+      </div>
+
+      <div class="card review-card">
+        <div class="review-card__top"><span class="stars">★★★★★</span><span class="review-card__time">2 weeks ago</span></div>
+        <h3 class="review-card__name">Rob Romano <span class="review-card__count">· 2 reviews</span></h3>
+        <p class="review-card__text">Reliable, professional and great to work with!!! I would highly recommend them</p>
+        <p class="review-card__source">— Google Review</p>
+      </div>
+
+      <div class="card review-card">
+        <div class="review-card__top"><span class="stars">★★★★★</span><span class="review-card__time">2 weeks ago</span></div>
+        <h3 class="review-card__name">Laura Looper-Hobbs <span class="review-card__count">· 16 reviews</span></h3>
+        <p class="review-card__text">These folks take good care of their customers. They have always arrived right away when I've had any AC issues. Highly recommend!</p>
+        <p class="review-card__source">— Google Review</p>
+      </div>
+
+      <div class="card review-card">
+        <div class="review-card__top"><span class="stars">★★★★★</span><span class="review-card__time">2 weeks ago</span></div>
+        <h3 class="review-card__name">Chelsea Gonzalez <span class="review-card__count">· 5 reviews</span></h3>
+        <p class="review-card__text">I recently had a repair completed by Mendoza Heating & Air, and I couldn't be happier with the service. The technician arrived on time, quickly diagnosed the issue, and clearly explained the repair process and options available.</p>
+        <p class="review-card__source">— Google Review</p>
+      </div>
+
+      <div class="card review-card">
+        <div class="review-card__top"><span class="stars">★★★★★</span><span class="review-card__time">3 weeks ago</span></div>
+        <h3 class="review-card__name">Tyler D <span class="review-card__count">· 1 review</span></h3>
+        <p class="review-card__text">Had a new HVAC system installed by Mendoza Heating and Air, and Will did an outstanding job. Showed up on time, worked efficiently, and clearly knew what he was doing. The installation was clean, professional, and everything was explained thoroughly.</p>
+        <p class="review-card__source">— Google Review</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= MAINTENANCE PLANS ================= -->
+<section class="section" id="plans">
+  <div class="section__inner">
+    <p class="label">STAY PROTECTED</p>
+    <h2 class="heading">Maintenance Plans</h2>
+    <p class="subtext">Regular maintenance extends the life of your system, prevents costly breakdowns, and keeps your warranty valid. Choose the coverage that's right for you.</p>
+
+    <div class="grid grid--3 plans-grid">
+      <div class="card plan-card">
+        <h3 class="plan-card__name">Basic</h3>
+        <p class="plan-card__desc">Annual tune-up and inspection to keep your system running efficiently through Tampa's seasons.</p>
+        <ul class="plan-card__list">
+          <li>Annual AC + heating tune-up</li>
+          <li>Full system inspection</li>
+          <li>Filter check and replacement</li>
+          <li>Priority scheduling for repairs</li>
+        </ul>
+        <a href="tel:8137702722" class="btn btn--outline btn--full">Call for Pricing</a>
+      </div>
+
+      <div class="card plan-card plan-card--highlight">
+        <span class="plan-card__badge">Most Popular</span>
+        <h3 class="plan-card__name">Priority</h3>
+        <p class="plan-card__desc">Bi-annual service visits plus discounts on repairs — the smart choice for year-round Tampa comfort.</p>
+        <ul class="plan-card__list">
+          <li>2 tune-ups per year (spring + fall)</li>
+          <li>Everything in Basic</li>
+          <li>15% discount on all repairs</li>
+          <li>Same-day priority service</li>
+          <li>Filter replacements included</li>
+        </ul>
+        <a href="tel:8137702722" class="btn btn--primary btn--full">Call for Pricing</a>
+      </div>
+
+      <div class="card plan-card">
+        <h3 class="plan-card__name">Elite</h3>
+        <p class="plan-card__desc">Comprehensive year-round coverage for total peace of mind. Premium protection for your HVAC investment.</p>
+        <ul class="plan-card__list">
+          <li>2 tune-ups per year</li>
+          <li>Everything in Priority</li>
+          <li>No-cost diagnostic visits</li>
+          <li>Extended labor warranty</li>
+          <li>Transferable plan (great for homeowners selling)</li>
+        </ul>
+        <a href="tel:8137702722" class="btn btn--outline btn--full">Call for Pricing</a>
+      </div>
+    </div>
+
+    <p class="plans-note">All plans include 24/7 emergency access. Call (813) 770-2722 to get started today.</p>
+  </div>
+</section>
+
+<!-- ================= SERVICE AREAS ================= -->
+<section class="section section--alt section--tight" id="areas">
+  <div class="section__inner">
+    <p class="label">WHERE WE WORK</p>
+    <h2 class="heading">Serving Tampa Bay & Beyond</h2>
+    <p class="subtext">Fast response times across Hillsborough and surrounding counties.</p>
+
+    <div class="areas">
+      <div class="areas__pills">
+        <span class="pill">Tampa</span>
+        <span class="pill">Brandon</span>
+        <span class="pill">Riverview</span>
+        <span class="pill">Valrico</span>
+        <span class="pill">Seffner</span>
+        <span class="pill">Plant City</span>
+        <span class="pill">Lutz</span>
+        <span class="pill">Carrollwood</span>
+        <span class="pill">Westchase</span>
+        <span class="pill">Town 'N' Country</span>
+        <span class="pill">Citrus Park</span>
+        <span class="pill">Wesley Chapel</span>
+        <span class="pill">Land O' Lakes</span>
+        <span class="pill">New Tampa</span>
+        <span class="pill">South Tampa</span>
+      </div>
+    </div>
+
+    <p class="areas__note">Don't see your area? <a href="tel:8137702722">Call us — we serve all of Greater Tampa Bay.</a></p>
+  </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section class="section" id="contact">
+  <div class="section__inner contact">
+    <div class="contact__info">
+      <p class="label">GET IN TOUCH</p>
+      <h2 class="heading heading--sm">Request Service<br>Today.</h2>
+
+      <div class="contact-method">
+        <div class="contact-method__icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.5.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.5 21 3 13.5 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.5.1.4 0 .7-.2 1L6.6 10.8z" fill="#fff"/></svg>
+        </div>
+        <div>
+          <a href="tel:8137702722" class="contact-method__title">(813) 770-2722</a>
+          <p class="contact-method__desc">Available 24/7 for emergencies</p>
+        </div>
+      </div>
+      <div class="contact-method">
+        <div class="contact-method__icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 2C7.6 2 4 5.6 4 10c0 6 8 12 8 12s8-6 8-12c0-4.4-3.6-8-8-8zm0 11a3 3 0 110-6 3 3 0 010 6z" fill="#fff"/></svg>
+        </div>
+        <div>
+          <span class="contact-method__title">Tampa, FL & Surrounding Areas</span>
+          <p class="contact-method__desc">Serving all of Hillsborough County</p>
+        </div>
+      </div>
+      <div class="contact-method">
+        <div class="contact-method__icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#fff" stroke-width="2"/><path d="M12 7v5l3 3" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg>
+        </div>
+        <div>
+          <span class="contact-method__title">Fast Response</span>
+          <p class="contact-method__desc">Most calls returned within 1 hour</p>
+        </div>
+      </div>
+
+      <p class="contact__trust">Licensed · Insured · No Obligation Estimates</p>
+    </div>
+
+    <div class="contact__form-wrap">
+      <form id="contactForm" class="contact-form" novalidate>
+        <div class="field">
+          <label for="fullName">Full Name <span class="req">*</span></label>
+          <input type="text" id="fullName" name="fullName" placeholder="John Smith" required>
+          <span class="field__error" id="fullNameError">Please enter your name.</span>
+        </div>
+
+        <div class="field">
+          <label for="phone">Phone Number <span class="req">*</span></label>
+          <input type="tel" id="phone" name="phone" placeholder="(813) 555-0123" required>
+          <span class="field__error" id="phoneError">Please enter your phone number.</span>
+        </div>
+
+        <div class="field">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" placeholder="you@example.com">
+        </div>
+
+        <div class="field">
+          <label for="service">Service Needed</label>
+          <select id="service" name="service">
+            <option value="">Select a service</option>
+            <option value="AC Repair">AC Repair</option>
+            <option value="AC Installation">AC Installation</option>
+            <option value="Heating Repair">Heating Repair</option>
+            <option value="Heating Installation">Heating Installation</option>
+            <option value="Commercial HVAC">Commercial HVAC</option>
+            <option value="Refrigeration">Refrigeration</option>
+            <option value="Ductwork">Ductwork</option>
+            <option value="Maintenance Plan">Maintenance Plan</option>
+            <option value="Other / Not Sure">Other / Not Sure</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label>Preferred Contact Method</label>
+          <div class="radio-group">
+            <label class="radio-option">
+              <input type="radio" name="contactMethod" value="Phone Call" checked>
+              <span>Phone Call</span>
+            </label>
+            <label class="radio-option">
+              <input type="radio" name="contactMethod" value="Text Message">
+              <span>Text Message</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="message">Message / Details</label>
+          <textarea id="message" name="message" rows="4" placeholder="Tell us what's going on..."></textarea>
+        </div>
+
+        <button type="submit" class="btn btn--primary btn--full btn--submit">Request Service →</button>
+
+        <p class="form-success" id="formSuccess" role="status">Thanks! We'll be in touch within 1 hour.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer class="footer">
+  <div class="footer__inner">
+    <div class="footer__col">
+      <img src="assets/logo.png" alt="Mendoza Heating & Air" class="footer__logo">
+      <p class="footer__tagline">Your Comfort Is Our Mission.</p>
+      <div class="footer__social">
+        <a href="https://www.facebook.com/profile.php?id=61582128857643" target="_blank" rel="noopener" aria-label="Facebook">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M14 9h3V5h-3c-2.2 0-4 1.8-4 4v2H8v4h2v6h4v-6h3l1-4h-4V9c0-.6.4-1 1-1z" fill="currentColor"/></svg>
+        </a>
+        <a href="https://www.instagram.com/mendozaheatingandair/" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="1.7"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.7"/><circle cx="17.3" cy="6.7" r="1.2" fill="currentColor"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="footer__col">
+      <p class="footer__label">SERVICES</p>
+      <a href="#services">AC Repair</a>
+      <a href="#services">Installation</a>
+      <a href="#services">Heating</a>
+      <a href="#services">Commercial</a>
+      <a href="#services">Refrigeration</a>
+      <a href="#services">Ductwork</a>
+    </div>
+
+    <div class="footer__col">
+      <p class="footer__label">CONTACT</p>
+      <a href="tel:8137702722">(813) 770-2722</a>
+      <span>Tampa, FL</span>
+      <span>Licensed & Insured</span>
+      <a href="#contact" class="btn btn--primary footer__cta">Schedule Service →</a>
+    </div>
+  </div>
+
+  <div class="footer__bottom">
+    <span>© 2025 Mendoza Heating & Air. All rights reserved.</span>
+    <a href="https://trackt.tech" target="_blank" rel="noopener">Built by Trackt Tech — trackt.tech</a>
+  </div>
+</footer>
+
+<!-- ================= STICKY MOBILE CALL BUTTON ================= -->
+<a href="tel:8137702722" class="mobile-call" id="mobileCall">
+  📞 Call (813) 770-2722
+</a>
+
+<!-- CDN Scripts -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
+
+<script src="js/main.js"></script>
+<script src="js/contact.js"></script>
+</body>
+</html>
