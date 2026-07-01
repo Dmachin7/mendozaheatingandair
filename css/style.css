@@ -430,9 +430,16 @@ input, select, textarea { font-family: inherit; }
      bottom edge on desktop, which works when there's slack below the
      content — but on mobile the CTAs can run long enough to collide with
      it. Pull it into normal flow instead, stacked right after
-     hero__content, so it can never overlap the buttons. */
+     hero__content, so it can never overlap the buttons.
+     Top-align the pair (flex-start) instead of centering it: centering
+     split the leftover space evenly above and below the group, pushing
+     the scroll hint down out of view. Top-aligning keeps the badge close
+     to the nav and puts any leftover space below the scroll hint instead,
+     so it shows up right under the Call Now button, near the screen's
+     bottom, without needing to scroll. */
   .hero {
     flex-direction: column;
+    justify-content: flex-start;
   }
   .hero__scroll {
     position: static;
