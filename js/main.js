@@ -98,26 +98,6 @@ if (prefersReducedMotion) {
     .fromTo('#heroCtas > a', { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, stagger: 0.1 }, 0.85);
 }
 
-// ---------- Scroll indicator ----------
-const heroScroll = document.getElementById('heroScroll');
-if (!prefersReducedMotion) {
-  gsap.to(heroScroll, {
-    y: 8,
-    duration: 1.5,
-    repeat: -1,
-    yoyo: true,
-    ease: 'sine.inOut',
-  });
-}
-
-window.addEventListener('scroll', () => {
-  if (window.scrollY > 100) {
-    heroScroll.style.opacity = '0';
-  } else {
-    heroScroll.style.opacity = '1';
-  }
-});
-
 // ---------- Scroll-triggered animations ----------
 if (!prefersReducedMotion) {
   // Section labels + headings + subtext (individual triggers)
@@ -188,16 +168,6 @@ if (!prefersReducedMotion) {
     ease: 'power2.out',
   });
 
-  // Area pills
-  gsap.from('.pill', {
-    scrollTrigger: { trigger: '.areas__pills', start: 'top 90%' },
-    opacity: 0,
-    y: 20,
-    duration: 0.5,
-    stagger: 0.03,
-    ease: 'power2.out',
-  });
-
   // Contact form fields
   gsap.from('.field', {
     scrollTrigger: { trigger: '.contact-form', start: 'top 85%' },
@@ -207,4 +177,22 @@ if (!prefersReducedMotion) {
     stagger: 0.05,
     ease: 'power2.out',
   });
+}
+
+// ---------- Reviews carousel (mobile) ----------
+const reviewsGrid = document.getElementById('reviewsGrid');
+const reviewsPrev = document.getElementById('reviewsPrev');
+const reviewsNext = document.getElementById('reviewsNext');
+
+if (reviewsGrid && reviewsPrev && reviewsNext) {
+  const scrollReviews = (direction) => {
+    const card = reviewsGrid.querySelector('.review-card');
+    if (!card) return;
+    const gap = parseFloat(getComputedStyle(reviewsGrid).columnGap) || 0;
+    const distance = card.getBoundingClientRect().width + gap;
+    reviewsGrid.scrollBy({ left: direction * distance, behavior: 'smooth' });
+  };
+
+  reviewsPrev.addEventListener('click', () => scrollReviews(-1));
+  reviewsNext.addEventListener('click', () => scrollReviews(1));
 }
