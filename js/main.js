@@ -21,6 +21,19 @@ if (!prefersReducedMotion) {
     lenis.raf(time * 1000);
   });
   gsap.ticker.lagSmoothing(0);
+
+  // Lenis measures the page's scrollable height once at init, but images
+  // (hero background, about photo) finish loading afterward and change
+  // the total page height. Without this, Lenis clamps scrollTo() targets
+  // to its stale, shorter measurement — anchor links like "Get a Free
+  // Quote" would land short of #contact instead of reaching it.
+  window.addEventListener('load', () => {
+    lenis.resize();
+    ScrollTrigger.refresh();
+  });
+  window.addEventListener('resize', () => {
+    lenis.resize();
+  });
 } else {
   gsap.registerPlugin(ScrollTrigger);
 }
@@ -34,6 +47,9 @@ document.querySelectorAll('a[href^="#"]').forEach((link) => {
     if (!target) return;
     e.preventDefault();
     if (lenis) {
+      // Recalculate right before scrolling in case images are still
+      // loading and Lenis's cached page height is out of date.
+      lenis.resize();
       lenis.scrollTo(target, { offset: -70 });
     } else {
       target.scrollIntoView({ behavior: prefersReducedMotion ? 'auto' : 'smooth' });
