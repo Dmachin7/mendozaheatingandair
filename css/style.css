@@ -399,54 +399,15 @@ input, select, textarea { font-family: inherit; }
   .hero__ctas { flex-direction: column; width: 100%; max-width: 320px; }
 }
 
-.hero__scroll {
-  position: absolute;
-  bottom: 28px;
-  left: 50%;
-  transform: translateX(-50%);
-  color: rgba(255, 255, 255, 0.3);
-  z-index: 2;
-  transition: opacity 300ms ease;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;
-}
-
-.hero__scroll-text {
-  display: none;
-  font-family: var(--font-body);
-  font-weight: 500;
-  font-size: 11px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.4);
-}
-
 @media (max-width: 768px) {
-  .hero__scroll-text { display: block; }
-
-  /* hero__scroll is absolutely pinned to a fixed distance from the hero's
-     bottom edge on desktop, which works when there's slack below the
-     content — but on mobile the CTAs can run long enough to collide with
-     it. Pull it into normal flow instead, stacked right after
-     hero__content, so it can never overlap the buttons.
-     Top-align the pair (flex-start) instead of centering it: centering
-     split the leftover space evenly above and below the group, pushing
-     the scroll hint down out of view. Top-aligning keeps the badge close
-     to the nav and puts any leftover space below the scroll hint instead,
-     so it shows up right under the Call Now button, near the screen's
-     bottom, without needing to scroll. */
+  /* Reserve room for the 70px sticky nav above and the ~56px trust-strip
+     marquee below, so the strip is visible at the very bottom of the
+     hero without scrolling on first load. Top-align (instead of
+     centering) so the badge sits close to the nav and there's no wasted
+     centering-slack eating into that reserved room. */
   .hero {
-    flex-direction: column;
+    min-height: calc(100svh - 70px - 56px);
     justify-content: flex-start;
-  }
-  .hero__scroll {
-    position: static;
-    left: auto;
-    bottom: auto;
-    transform: none;
-    margin-top: 20px;
   }
 }
 
@@ -557,6 +518,29 @@ input, select, textarea { font-family: inherit; }
   font-size: 14px;
   color: var(--silver);
   line-height: 1.6;
+}
+
+@media (max-width: 640px) {
+  /* A 2x3 grid of compact, icon + title cards reads much faster on
+     mobile than one long column of full cards with paragraphs. */
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+  .service-card {
+    padding: 18px 14px;
+    text-align: center;
+  }
+  .service-card .card__icon {
+    margin: 0 auto 10px;
+  }
+  .service-card .card__title {
+    font-size: 15px;
+    margin-bottom: 0;
+  }
+  .service-card .card__desc {
+    display: none;
+  }
 }
 
 /* ============ WHY CHOOSE US ============ */
@@ -738,6 +722,60 @@ input, select, textarea { font-family: inherit; }
   color: var(--dim);
 }
 
+.reviews-carousel {
+  position: relative;
+}
+
+.carousel-nav {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  /* Swap the static grid for a swipeable, scroll-snapped row on mobile so
+     browsing 10 reviews doesn't mean one long vertical scroll. Arrow
+     buttons below give the same control without needing to swipe. */
+  .reviews-grid {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 16px;
+    padding-bottom: 4px;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+  .reviews-grid::-webkit-scrollbar {
+    display: none;
+  }
+  .review-card {
+    flex: 0 0 85%;
+    scroll-snap-align: center;
+  }
+
+  .carousel-nav {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 20px;
+  }
+  .carousel-arrow {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: border-color 200ms ease, background 200ms ease;
+  }
+  .carousel-arrow:hover,
+  .carousel-arrow:active {
+    border-color: var(--red);
+    background: var(--red);
+  }
+}
+
 /* ============ MAINTENANCE PLANS ============ */
 
 .plans-grid { align-items: stretch; }
@@ -812,37 +850,6 @@ input, select, textarea { font-family: inherit; }
   font-size: 13px;
   color: var(--silver);
   margin-top: 40px;
-}
-
-/* ============ SERVICE AREAS ============ */
-
-.areas__pills {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-bottom: 32px;
-}
-
-.pill {
-  background: #252525;
-  border: 1px solid #333;
-  border-radius: 20px;
-  padding: 6px 14px;
-  font-weight: 500;
-  font-size: 13px;
-  color: var(--silver);
-  transition: border-color 200ms ease, color 200ms ease;
-}
-.pill:hover { border-color: var(--red); color: var(--white); }
-
-.areas__note {
-  font-size: 14px;
-  color: var(--silver);
-}
-.areas__note a {
-  color: var(--red);
-  text-decoration: underline;
-  font-weight: 600;
 }
 
 /* ============ CONTACT ============ */
