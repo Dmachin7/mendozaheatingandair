@@ -82,7 +82,7 @@ input, select, textarea { font-family: inherit; }
 @media (max-width: 640px) {
   .section { padding: 48px 24px; }
   .section--tight { padding-top: 40px; padding-bottom: 40px; }
-  .subtext { margin-bottom: 24px; }
+  .subtext { margin-bottom: 16px; }
 }
 
 .grid { display: grid; gap: 20px; }
@@ -413,6 +413,7 @@ input, select, textarea { font-family: inherit; }
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.35);
+  opacity: 0;
 }
 
 @media (max-width: 768px) {
@@ -459,7 +460,9 @@ input, select, textarea { font-family: inherit; }
 .trust-strip__track {
   display: flex;
   width: max-content;
-  animation: trust-marquee 26s linear infinite;
+  /* 4 badge groups now (was 2), so the -50% loop covers twice the distance;
+     duration is doubled to keep the same visual scroll speed. */
+  animation: trust-marquee 52s linear infinite;
 }
 
 .trust-strip__group {
