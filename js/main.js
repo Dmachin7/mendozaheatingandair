@@ -83,7 +83,7 @@ navOverlay.querySelectorAll('a').forEach((link) => {
 
 // ---------- Hero entrance animation ----------
 if (prefersReducedMotion) {
-  document.querySelectorAll('#heroBadge, #heroLine1, #heroLine2, #heroSubtext, #heroCtas').forEach((el) => {
+  document.querySelectorAll('#heroBadge, #heroLogo, #heroLine1, #heroLine2, #heroSubtext, #heroCtas').forEach((el) => {
     el.style.opacity = 1;
   });
 } else {
@@ -91,10 +91,11 @@ if (prefersReducedMotion) {
 
   heroTl
     .fromTo('#heroBadge', { y: -20, opacity: 0 }, { y: 0, opacity: 1, duration: 0.4 }, 0)
-    .fromTo('#heroLine1', { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6 }, 0.2)
-    .fromTo('#heroLine2', { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5 }, 0.35)
-    .fromTo('#heroSubtext', { opacity: 0 }, { opacity: 1, duration: 0.5 }, 0.5)
-    .fromTo('#heroCtas > a', { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, stagger: 0.1 }, 0.65);
+    .fromTo('#heroLogo', { scale: 0.8, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.6 }, 0.15)
+    .fromTo('#heroLine1', { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6 }, 0.4)
+    .fromTo('#heroLine2', { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5 }, 0.55)
+    .fromTo('#heroSubtext', { opacity: 0 }, { opacity: 1, duration: 0.5 }, 0.7)
+    .fromTo('#heroCtas > a', { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, stagger: 0.1 }, 0.85);
 }
 
 // ---------- Scroll indicator ----------

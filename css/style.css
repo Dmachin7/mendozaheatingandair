@@ -287,6 +287,11 @@ input, select, textarea { font-family: inherit; }
   .btn--call__label { display: inline; }
 }
 
+@media (max-width: 768px) {
+  /* Call CTA lives in the hero and the mobile flyout menu instead */
+  .btn--call { display: none; }
+}
+
 /* ============ HERO ============ */
 
 .hero {
@@ -297,6 +302,35 @@ input, select, textarea { font-family: inherit; }
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+/* On mobile, the hero and trust strip share one viewport-height block so the
+   marquee is visible without scrolling on first load. */
+@media (max-width: 768px) {
+  .hero-group {
+    height: 100svh;
+    min-height: 560px;
+    display: flex;
+    flex-direction: column;
+  }
+  .hero {
+    height: auto;
+    min-height: 0;
+    flex: 1 1 auto;
+  }
+  .hero__content {
+    padding: 40px 24px;
+  }
+  .trust-strip {
+    flex-shrink: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero__logo {
+    width: clamp(160px, 42vw, 240px);
+    margin-bottom: 20px;
+  }
 }
 
 .hero__bg {
@@ -342,6 +376,13 @@ input, select, textarea { font-family: inherit; }
   padding: 6px 16px;
   border-radius: 20px;
   margin-bottom: 28px;
+  opacity: 0;
+}
+
+.hero__logo {
+  width: clamp(220px, 40vw, 340px);
+  margin-bottom: 28px;
+  filter: drop-shadow(0 4px 24px rgba(200, 16, 46, 0.3));
   opacity: 0;
 }
 
@@ -946,7 +987,7 @@ input, select, textarea { font-family: inherit; }
 
 .footer__col { display: flex; flex-direction: column; gap: 10px; }
 
-.footer__logo { height: 48px; margin-bottom: 8px; }
+.footer__logo { height: 48px; width: auto; align-self: flex-start; margin-bottom: 8px; }
 
 .footer__tagline { font-size: 14px; color: var(--dim); margin-bottom: 12px; }
 
@@ -1002,7 +1043,7 @@ input, select, textarea { font-family: inherit; }
 /* ============ REDUCED MOTION ============ */
 
 @media (prefers-reduced-motion: reduce) {
-  .badge, .hero__title-line, .hero__subtext, .hero__ctas {
+  .badge, .hero__logo, .hero__title-line, .hero__subtext, .hero__ctas {
     opacity: 1 !important;
     transform: none !important;
   }
