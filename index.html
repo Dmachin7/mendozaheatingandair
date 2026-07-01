@@ -82,16 +82,55 @@
       <a href="tel:8137702722" class="btn btn--secondary">Call Now</a>
     </div>
 
-    <p class="hero__scroll-hint">Scroll ↓</p>
+    <p class="hero__scroll-hint" id="heroScrollHint">Scroll ↓</p>
   </div>
 </section>
 
 <!-- ================= TRUST STRIP ================= -->
-<!-- Infinite auto-scrolling marquee: the badge group is duplicated below so the
-     CSS animation can loop seamlessly from -50% back to 0. -->
+<!-- Infinite auto-scrolling marquee: the badge group is duplicated 4x below so
+     the CSS animation can loop seamlessly from -50% back to 0, and so the
+     track is wide enough to fully cover very wide desktop viewports (a single
+     duplicate can run out of width before the edge of an ultra-wide screen,
+     leaving a visible gap). -->
 <section class="trust-strip" aria-label="Trust badges">
   <div class="trust-strip__track">
     <div class="trust-strip__group">
+      <div class="trust-badge">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span>Licensed & Insured</span>
+      </div>
+      <div class="trust-badge">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z" fill="#fff"/></svg>
+        <span>Same-Day Service</span>
+      </div>
+      <div class="trust-badge">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#fff" stroke-width="2"/><path d="M12 7v5l3 3" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg>
+        <span>24/7 Emergency Available</span>
+      </div>
+      <div class="trust-badge">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="#fff"/></svg>
+        <span>5-Star Rated in Tampa</span>
+      </div>
+    </div>
+    <div class="trust-strip__group" aria-hidden="true">
+      <div class="trust-badge">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span>Licensed & Insured</span>
+      </div>
+      <div class="trust-badge">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z" fill="#fff"/></svg>
+        <span>Same-Day Service</span>
+      </div>
+      <div class="trust-badge">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#fff" stroke-width="2"/><path d="M12 7v5l3 3" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg>
+        <span>24/7 Emergency Available</span>
+      </div>
+      <div class="trust-badge">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="#fff"/></svg>
+        <span>5-Star Rated in Tampa</span>
+      </div>
+    </div>
+    <div class="trust-strip__group" aria-hidden="true">
       <div class="trust-badge">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
         <span>Licensed & Insured</span>

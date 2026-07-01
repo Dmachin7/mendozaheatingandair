@@ -83,7 +83,7 @@ navOverlay.querySelectorAll('a').forEach((link) => {
 
 // ---------- Hero entrance animation ----------
 if (prefersReducedMotion) {
-  document.querySelectorAll('#heroBadge, #heroLogo, #heroLine1, #heroLine2, #heroSubtext, #heroCtas').forEach((el) => {
+  document.querySelectorAll('#heroBadge, #heroLogo, #heroLine1, #heroLine2, #heroSubtext, #heroCtas, #heroScrollHint').forEach((el) => {
     el.style.opacity = 1;
   });
 } else {
@@ -95,7 +95,8 @@ if (prefersReducedMotion) {
     .fromTo('#heroLine1', { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6 }, 0.4)
     .fromTo('#heroLine2', { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5 }, 0.55)
     .fromTo('#heroSubtext', { opacity: 0 }, { opacity: 1, duration: 0.5 }, 0.7)
-    .fromTo('#heroCtas > a', { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, stagger: 0.1 }, 0.85);
+    .fromTo('#heroCtas > a', { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, stagger: 0.1 }, 0.85)
+    .fromTo('#heroScrollHint', { opacity: 0 }, { opacity: 1, duration: 0.5 }, 1.05);
 }
 
 // ---------- Scroll-triggered animations ----------
