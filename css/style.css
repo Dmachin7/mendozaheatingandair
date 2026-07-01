@@ -425,6 +425,22 @@ input, select, textarea { font-family: inherit; }
 
 @media (max-width: 768px) {
   .hero__scroll-text { display: block; }
+
+  /* hero__scroll is absolutely pinned to a fixed distance from the hero's
+     bottom edge on desktop, which works when there's slack below the
+     content — but on mobile the CTAs can run long enough to collide with
+     it. Pull it into normal flow instead, stacked right after
+     hero__content, so it can never overlap the buttons. */
+  .hero {
+    flex-direction: column;
+  }
+  .hero__scroll {
+    position: static;
+    left: auto;
+    bottom: auto;
+    transform: none;
+    margin-top: 20px;
+  }
 }
 
 /* Mobile-only safety margin: real Bebas Neue/Inter render taller than the
